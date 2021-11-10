@@ -21,7 +21,7 @@ public class BinaryTree {
   public void createBinaryTree() {
     TreeNode first = new TreeNode(9);
     TreeNode second = new TreeNode(2);
-    TreeNode third = new TreeNode(3);
+    TreeNode third = new TreeNode(15);
     TreeNode fourth = new TreeNode(4);
 
     root = first;
