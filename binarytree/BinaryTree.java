@@ -1,5 +1,7 @@
 package binarytree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -123,6 +125,44 @@ public class BinaryTree {
     }
   }
 
+  // with a queue
+  public void levelOrder() {
+    if (root == null) {
+      return;
+    }
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+    while (!queue.isEmpty()) {
+      TreeNode temp = queue.poll();
+      System.out.print(temp.data + " ");
+      if (temp.left != null) {
+        queue.offer(temp.left);
+      }
+      if (temp.right != null) {
+        queue.offer(temp.right);
+      }
+    }
+  }
+
+  public int findMaximum(TreeNode root) {
+    if (root == null) {
+      return Integer.MIN_VALUE;
+    }
+
+    int result = root.data;
+    int left = findMaximum(root.left);
+    int right = findMaximum(root.right);
+    if (left > result) {
+      result = left;
+    }
+    if (right > result) {
+      result = right;
+    }
+
+    return result;
+  }
+
   public static void main(String[] args) {
     BinaryTree tree = new BinaryTree();
     tree.createBinaryTree();
@@ -135,5 +175,9 @@ public class BinaryTree {
 
     // tree.recursivePostOrder(tree.root);
     // tree.iterativePostOrder(tree.root);
+
+    // tree.levelOrder();
+    tree.findMaximum(tree.root);
+    System.out.println(tree.findMaximum(tree.root));
   }
 }
