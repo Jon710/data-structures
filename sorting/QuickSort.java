@@ -40,7 +40,7 @@ public class QuickSort {
     int[] arr = new int[] { 5, 1, 2, 9, 10 };
 
     MergeSort ms = new MergeSort();
-    ms.quickSort(arr, 0, arr.length - 1);
+    // ms.quickSort(arr, 0, arr.length - 1);
     ms.printArray(arr);
   }
 }
